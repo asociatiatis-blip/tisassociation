@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TIS Association — Technology and Innovation for Society</title>
+<meta name="description" content="TIS Association — Technology and Innovation for Society. Building technology that serves people across mobility, health, and energy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#0f3b2e;
+  --moss:#1c5a40;
+  --leaf:#3f9b6e;
+  --lime:#a8e063;
+  --sand:#f5f3ec;
+  --paper:#fbfaf5;
+  --ink:#13201a;
+  --muted:#5d6b62;
+  --line:rgba(15,59,46,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);font-weight:500}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+header{position:sticky;top:0;z-index:50;background:rgba(251,250,245,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:-.01em}
+.mark{width:34px;height:34px;border-radius:9px;background:var(--forest);display:grid;place-items:center;flex:none}
+.mark svg{width:20px;height:20px}
+.brand small{display:block;font-weight:400;font-size:.62rem;letter-spacing:.04em;color:var(--muted);font-family:'IBM Plex Mono',monospace;margin-top:1px}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{font-size:.9rem;font-weight:500;color:var(--muted);transition:color .2s}
+.navlinks a:hover{color:var(--forest)}
+.navlinks .cta{background:var(--forest);color:#fff;padding:9px 18px;border-radius:100px;font-size:.85rem}
+.navlinks .cta:hover{background:var(--moss);color:#fff}
+.menubtn{display:none;background:none;border:none;cursor:pointer}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(120% 80% at 80% -10%, rgba(168,224,99,.22), transparent 55%),
+  linear-gradient(180deg,var(--paper),var(--sand));
+  padding:96px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(2.6rem,6vw,4.4rem);margin:22px 0 0}
+.hero h1 em{font-style:italic;color:var(--leaf)}
+.hero p.lead{font-size:1.18rem;color:var(--muted);max-width:30ch;margin:24px 0 34px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:100px;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s}
+.btn-p{background:var(--forest);color:#fff}
+.btn-p:hover{background:var(--moss);transform:translateY(-2px)}
+.btn-s{border:1.5px solid var(--line);color:var(--forest)}
+.btn-s:hover{border-color:var(--leaf);transform:translateY(-2px)}
+
+/* hero visual: living orbit */
+.orbit{position:relative;aspect-ratio:1;max-width:380px;margin-left:auto}
+.orbit-core{position:absolute;inset:30%;border-radius:50%;background:var(--forest);display:grid;place-items:center;color:var(--lime);font-family:'IBM Plex Mono',monospace;font-size:.7rem;letter-spacing:.1em;text-align:center;box-shadow:0 20px 50px rgba(15,59,46,.25)}
+.ring{position:absolute;border:1px dashed var(--line);border-radius:50%}
+.r1{inset:14%}.r2{inset:0}
+.node{position:absolute;width:54px;height:54px;border-radius:14px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 8px 24px rgba(15,59,46,.1);animation:float 6s ease-in-out infinite}
+.node svg{width:24px;height:24px;color:var(--moss)}
+.n1{top:-6%;left:42%;animation-delay:0s}
+.n2{bottom:8%;left:-4%;animation-delay:1.5s}
+.n3{bottom:8%;right:-4%;animation-delay:3s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.hero-stats{display:flex;gap:38px;margin-top:54px;flex-wrap:wrap}
+.stat .num{font-family:'Fraunces',serif;font-size:2.1rem;font-weight:600;color:var(--forest)}
+.stat .lab{font-size:.82rem;color:var(--muted)}
+
+/* SECTION shell */
+section{padding:88px 0}
+.shead{max-width:60ch;margin-bottom:48px}
+.shead h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:14px 0 14px}
+.shead p{color:var(--muted);font-size:1.05rem}
+
+/* PRIORITIES */
+.pri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pri{position:relative;background:#fff;border:1px solid var(--line);border-radius:20px;padding:34px 30px;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.pri:hover{transform:translateY(-5px);box-shadow:0 22px 50px rgba(15,59,46,.12)}
+.pri .ic{width:52px;height:52px;border-radius:14px;background:var(--sand);display:grid;place-items:center;margin-bottom:22px}
+.pri .ic svg{width:26px;height:26px;color:var(--moss)}
+.pri h3{font-size:1.4rem;margin-bottom:10px}
+.pri p{color:var(--muted);font-size:.96rem}
+.pri .tag{font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.12em;color:var(--leaf);position:absolute;top:30px;right:30px}
+
+/* ABOUT */
+.about{background:var(--forest);color:var(--sand);border-radius:32px;margin:0 28px;padding:0}
+.about-in{max-width:1120px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about .eyebrow{color:var(--lime)}
+.about h2{color:#fff;font-size:clamp(1.9rem,4vw,2.7rem);margin:14px 0 20px}
+.about p{color:rgba(245,243,236,.78);font-size:1.05rem;margin-bottom:16px}
+.about-vals{display:grid;gap:18px}
+.val{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-top:1px solid rgba(255,255,255,.14)}
+.val .vi{font-family:'IBM Plex Mono',monospace;color:var(--lime);font-size:.85rem;flex:none;padding-top:2px}
+.val h4{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:600;margin-bottom:4px}
+.val p{font-size:.92rem;margin:0;color:rgba(245,243,236,.7)}
+
+/* PROJECTS */
+.proj-list{display:grid;gap:20px}
+.proj{display:grid;grid-template-columns:120px 1fr auto;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 34px;transition:border-color .25s,transform .25s}
+.proj:hover{border-color:var(--leaf);transform:translateX(6px)}
+.proj .pyear{font-family:'IBM Plex Mono',monospace;color:var(--leaf);font-size:.85rem}
+.proj h3{font-size:1.5rem;margin-bottom:6px}
+.proj p{color:var(--muted);font-size:.96rem;max-width:55ch}
+.proj .parrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;transition:background .25s,color .25s}
+.proj:hover .parrow{background:var(--forest);color:#fff;border-color:var(--forest)}
+.proj .parrow svg{width:18px;height:18px}
+
+/* HELP */
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.help{background:linear-gradient(180deg,#fff,var(--sand));border:1px solid var(--line);border-radius:20px;padding:34px 30px;text-align:center}
+.help .ic{width:56px;height:56px;border-radius:50%;background:var(--forest);display:grid;place-items:center;margin:0 auto 20px}
+.help .ic svg{width:26px;height:26px;color:var(--lime)}
+.help h3{font-size:1.3rem;margin-bottom:10px}
+.help p{color:var(--muted);font-size:.95rem;margin-bottom:20px}
+.help a{font-weight:600;color:var(--forest);font-size:.92rem;display:inline-flex;align-items:center;gap:6px}
+.help a:hover{gap:10px}
+
+/* CONTACT */
+.contact{background:var(--sand)}
+.contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}
+.cinfo h2{font-size:clamp(1.9rem,4vw,2.6rem);margin:14px 0 22px}
+.cinfo p{color:var(--muted);margin-bottom:28px;max-width:38ch}
+.cline{display:flex;gap:14px;align-items:center;margin-bottom:18px;font-size:.98rem}
+.cline svg{width:20px;height:20px;color:var(--leaf);flex:none}
+.cline a{transition:color .2s}
+.cline a:hover{color:var(--forest);text-decoration:underline}
+form{background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px}
+.field{margin-bottom:18px}
+label{display:block;font-size:.82rem;font-weight:600;margin-bottom:7px;color:var(--forest)}
+input,textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-family:inherit;font-size:.95rem;background:var(--paper);transition:border-color .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--leaf)}
+textarea{resize:vertical;min-height:120px}
+form .btn-p{width:100%;justify-content:center;border:none;cursor:pointer;font-family:inherit}
+.formnote{font-size:.78rem;color:var(--muted);margin-top:12px;text-align:center}
+
+/* FOOTER */
+footer{background:var(--forest);color:rgba(245,243,236,.7);padding:64px 0 32px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;margin-bottom:48px}
+footer .brand{color:#fff}
+footer .brand small{color:rgba(245,243,236,.5)}
+footer p.fdesc{margin-top:18px;max-width:34ch;font-size:.92rem}
+.fcol h5{color:#fff;font-family:'Inter';font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px}
+.fcol a{display:block;margin-bottom:11px;font-size:.92rem;transition:color .2s}
+.fcol a:hover{color:var(--lime)}
+.fbottom{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem;font-family:'IBM Plex Mono',monospace}
+
+@media(max-width:860px){
+  .navlinks{display:none}
+  .menubtn{display:block}
+  .hero-grid,.about-in,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .orbit{margin:0 auto}
+  .pri-grid,.help-grid{grid-template-columns:1fr}
+  .proj{grid-template-columns:1fr;gap:12px;text-align:left}
+  .proj .parrow{display:none}
+  .foot-grid{grid-template-columns:1fr;gap:32px}
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="wrap">
+<nav>
+  <a href="#top" class="brand">
+    <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M12 8c-3-3-7-3-7-3s0 4 3 5 4-2 4-2zM12 11c3-3 7-3 7-3s0 4-3 5-4-2-4-2z" stroke="#a8e063" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>TIS Association<small>Technology &amp; Innovation for Society</small></span>
+  </a>
+  <div class="navlinks">
+    <a href="#priorities">Priorities</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#help">Get Involved</a>
+    <a href="#contact" class="cta">Contact</a>
+  </div>
+  <button class="menubtn" onclick="document.querySelector('.navlinks').style.display='flex';this.remove()"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="#0f3b2e" stroke-width="2" stroke-linecap="round"/></svg></button>
+</nav>
+</div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top" style="padding-top:96px">
+<div class="wrap">
+<div class="hero-grid">
+  <div>
+    <span class="eyebrow">Non-profit · Technology for the public good</span>
+    <h1>Technology that <em>serves</em> the people it touches.</h1>
+    <p class="lead">We turn innovation into real social impact across mobility, health, and energy.</p>
+    <div class="btns">
+      <a href="#projects" class="btn btn-p">See our work
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="#help" class="btn btn-s">Get involved</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">3</div><div class="lab">impact areas</div></div>
+      <div class="stat"><div class="num">3</div><div class="lab">projects delivered</div></div>
+      <div class="stat"><div class="num">1</div><div class="lab">mission: society</div></div>
+    </div>
+  </div>
+  <div class="orbit">
+    <div class="ring r2"></div>
+    <div class="ring r1"></div>
+    <div class="orbit-core">FOR<br>SOCIETY</div>
+    <div class="node n1"><svg viewBox="0 0 24 24" fill="none"><path d="M5 17h14M7 17V9l5-4 5 4v8M9 17v-3h6v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="node n2"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <div class="node n3"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- PRIORITIES -->
+<section id="priorities">
+<div class="wrap">
+<div class="shead">
+  <span class="eyebrow">Our priorities</span>
+  <h2>Where technology meets human need</h2>
+  <p>We focus on three areas where smart, well-designed technology can change everyday life for the better.</p>
+</div>
+<div class="pri-grid">
+  <div class="pri">
+    <span class="tag">01</span>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 17h2m14 0h2M6 17a2 2 0 104 0 2 2 0 00-4 0zm8 0a2 2 0 104 0 2 2 0 00-4 0zM5 17l1.5-6h11L19 17M6.5 11l1-3h9l1 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h3>Mobility</h3>
+    <p>Cleaner, smarter, more accessible ways for people and communities to move — connecting places without the cost to the planet.</p>
+  </div>
+  <div class="pri">
+    <span class="tag">02</span>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 12h4l2-5 3 10 2-5h7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h3>Health</h3>
+    <p>Technology that makes care more available, more preventive, and more human — closing gaps between people and the help they need.</p>
+  </div>
+  <div class="pri">
+    <span class="tag">03</span>
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <h3>Energy</h3>
+    <p>Sustainable energy solutions that empower communities — efficient, renewable, and built to last for the generations that follow.</p>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section style="padding:0">
+<div class="about" id="about">
+<div class="about-in">
+  <div>
+    <span class="eyebrow">About us</span>
+    <h2>We build with society, not just for it.</h2>
+    <p>TIS Association — Technology and Innovation for Society — is a non-profit working at the intersection of innovation and the public good.</p>
+    <p>We believe the best technology is the kind people barely notice because it simply makes life better. That conviction guides everything from the projects we choose to the partners we work with.</p>
+    <p style="font-size:.85rem;color:rgba(245,243,236,.55)">[ Edit this text with your organization's real story, founding year, and team. ]</p>
+  </div>
+  <div class="about-vals">
+    <div class="val"><span class="vi">→</span><div><h4>Impact over hype</h4><p>We measure success by what changes for real people, not by how new the technology sounds.</p></div></div>
+    <div class="val"><span class="vi">→</span><div><h4>Built to last</h4><p>Solutions designed to be sustainable — environmentally and for the communities that adopt them.</p></div></div>
+    <div class="val"><span class="vi">→</span><div><h4>Open by default</h4><p>We collaborate across sectors and share what we learn so good ideas travel further.</p></div></div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="wrap">
+<div class="shead">
+  <span class="eyebrow">Previous projects</span>
+  <h2>What we've delivered</h2>
+  <p>A look at past initiatives where our approach turned into measurable change on the ground.</p>
+</div>
+<div class="proj-list">
+  <article class="proj">
+    <span class="pyear">Project 01</span>
+    <div>
+      <h3>EcoHuedin 360</h3>
+      <p>A community-centered initiative driving sustainable change in Huedin. [ Replace with a short description and add photos. ]</p>
+    </div>
+    <span class="parrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </article>
+  <article class="proj">
+    <span class="pyear">Project 02</span>
+    <div>
+      <h3>EcoAlianța</h3>
+      <p>An alliance bringing partners together around shared environmental and social goals. [ Replace with details. ]</p>
+    </div>
+    <span class="parrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </article>
+  <article class="proj">
+    <span class="pyear">Project 03</span>
+    <div>
+      <h3>Terra</h3>
+      <p>A project rooted in protecting and restoring the land we all depend on. [ Replace with details. ]</p>
+    </div>
+    <span class="parrow"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </article>
+</div>
+</div>
+</section>
+
+<!-- HELP -->
+<section id="help" style="background:var(--sand)">
+<div class="wrap">
+<div class="shead">
+  <span class="eyebrow">Get involved</span>
+  <h2>Help us go further</h2>
+  <p>There's a place for everyone who wants technology to work for society. Here's how you can be part of it.</p>
+</div>
+<div class="help-grid">
+  <div class="help">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4 4 0 017-2.5A4 4 0 0119 11c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <h3>Donate</h3>
+    <p>Fund projects that put innovation to work where it matters most.</p>
+    <a href="#contact">Support us →</a>
+  </div>
+  <div class="help">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM3 21v-1a6 6 0 0112 0v1M17 14a6 6 0 014 5.6V21" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h3>Volunteer</h3>
+    <p>Lend your time and skills to initiatives in your community.</p>
+    <a href="#contact">Join the team →</a>
+  </div>
+  <div class="help">
+    <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5 5.5.8-4 3.9 1 5.5L12 16l-5 2.7 1-5.5-4-3.9 5.5-.8L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+    <h3>Partner</h3>
+    <p>Collaborate with us on projects that scale impact across sectors.</p>
+    <a href="#contact">Work with us →</a>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="wrap">
+<div class="contact-grid">
+  <div class="cinfo">
+    <span class="eyebrow">Contact</span>
+    <h2>Let's talk</h2>
+    <p>Have an idea, a question, or want to support our work? We'd love to hear from you.</p>
+    <div class="cline"><svg viewBox="0 0 24 24" fill="none"><path d="M3 7l9 6 9-6M3 7v10h18V7H3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><a href="mailto:asociatiatis@gmail.com">asociatiatis@gmail.com</a></div>
+    <div class="cline"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a1 1 0 01-1 1A16 16 0 014 5a1 1 0 011-1z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><a href="tel:+40749060690">+40 749 060 690</a></div>
+    <div class="cline"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="11" r="2.5" stroke="currentColor" stroke-width="1.6"/></svg>Romania</div>
+    <div class="cline"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>Mon–Fri, 9:00–17:00</div>
+  </div>
+  <form onsubmit="handleSubmit(event)">
+    <div class="field"><label for="name">Name</label><input id="name" type="text" placeholder="Your name" required></div>
+    <div class="field"><label for="email">Email</label><input id="email" type="email" placeholder="you@email.com" required></div>
+    <div class="field"><label for="msg">Message</label><textarea id="msg" placeholder="How can we help?" required></textarea></div>
+    <button type="submit" class="btn btn-p">Send message</button>
+    <p class="formnote">This form is a placeholder. Connect it to your email service (e.g. Formspree) to receive messages.</p>
+  </form>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+<div class="wrap">
+<div class="foot-grid">
+  <div>
+    <div class="brand">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3v18M12 8c-3-3-7-3-7-3s0 4 3 5 4-2 4-2zM12 11c3-3 7-3 7-3s0 4-3 5-4-2-4-2z" stroke="#a8e063" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>TIS Association<small>Technology &amp; Innovation for Society</small></span>
+    </div>
+    <p class="fdesc">Turning innovation into social impact across mobility, health, and energy.</p>
+  </div>
+  <div class="fcol">
+    <h5>Explore</h5>
+    <a href="#priorities">Priorities</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#help">Get Involved</a>
+  </div>
+  <div class="fcol">
+    <h5>Connect</h5>
+    <a href="#contact">Contact</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+  </div>
+</div>
+<div class="fbottom">
+  <span>© 2026 TIS Association. All rights reserved.</span>
+  <span>Technology and Innovation for Society</span>
+</div>
+</div>
+</footer>
+
+<script>
+function handleSubmit(e){
+  e.preventDefault();
+  alert("Thank you! Your message has been captured.\n\nTo actually receive messages, connect this form to a service like Formspree, Getform, or your own backend.");
+  e.target.reset();
+}
+</script>
+</body>
+</html>
