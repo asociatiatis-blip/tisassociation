@@ -113,12 +113,13 @@
       var label = btn.querySelector('.btn-copy-label');
       copyText(email).then(function () {
         announce(email + ' copied to clipboard');
-        if (label) {
-          var prev = label.textContent;
-          label.textContent = 'Copied ✓';
-          btn.classList.add('is-copied');
-          setTimeout(function () { label.textContent = prev; btn.classList.remove('is-copied'); }, 2200);
-        }
+        var prev = label ? label.textContent : null;
+        if (label) label.textContent = 'Copied ✓';
+        btn.classList.add('is-copied');
+        setTimeout(function () {
+          if (label) label.textContent = prev;
+          btn.classList.remove('is-copied');
+        }, 2200);
       }).catch(function () {
         announce('Could not copy — the address is ' + email);
       });

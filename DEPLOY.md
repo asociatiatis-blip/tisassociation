@@ -150,8 +150,12 @@ then `git add . && git commit -m "Update copy" && git push`. GitHub Pages redepl
 
 **Fill in the `[ YOU ADD: … ]` spots** (search the project for `YOU ADD`):
 - About section — your real founding year / team / story.
-- Each project — 1–2 concrete results.
 - Footer — real social links (or delete the placeholders).
+
+**Projects** now link to their websites (each title opens the site in a new tab). To change
+a link, edit the `href` on that project's `<a class="proj-link" …>` in `index.html`. The
+five projects are EcoHuedin 360, EcoAlianța, Terra, Technology for Accessible Justice
+(2019–2023), and Smart Volunteer / voluntarI (2018–2019).
 
 **Add project photos:** drop images in `assets/img/`, then in `index.html` replace a
 project's `<span class="proj-thumb">…</span>` with:
@@ -165,8 +169,9 @@ the same filename and dimensions.
 
 **How contact works now:** the "Let's talk" section has an **Open in Gmail** button
 (composes a message in the browser — reliable even without a desktop mail app), a
-**Copy email** button, and `mailto:`/`tel:` fallbacks. Nothing to maintain; messages
-arrive at `asociatiatis@gmail.com`.
+**Copy email** button, click-to-copy email addresses, and a `tel:` phone link. No
+`mailto:` anywhere (it silently fails when there's no desktop mail app). Nothing to
+maintain; messages arrive at `asociatiatis@gmail.com`.
 
 **Want a real in-page form later?** You can add one for free with
 [Web3Forms](https://web3forms.com) (no backend):
@@ -184,7 +189,8 @@ Ask and this can be wired in.
 - 🔒 Strict Content-Security-Policy, no inline scripts/styles, no third-party requests.
 - 🔒 Fonts self-hosted (no Google Fonts call → cleaner GDPR/EU posture, faster).
 - 🔒 No contact form backend to attack — contact is an "Open in Gmail" compose link +
-  one-click "Copy email" + `mailto:`/`tel:` fallbacks (works for everyone, no third party).
+  one-click "Copy email" + click-to-copy addresses + a `tel:` link (works for everyone,
+  no third party, no failure-prone `mailto:`).
 - ♿ WCAG AA/AAA contrast, keyboard nav, skip link, visible focus, reduced-motion support.
 - ⚡ ~0.7 MB total, lazy/deferred where it matters, no framework.
 - 🔎 SEO: sitemap, robots, canonical, Open Graph + Twitter cards, JSON-LD Organization.
